@@ -102,7 +102,7 @@ const Skills: React.FC = () => {
             className="grid grid-cols-1 lg:grid-cols-3 gap-8"
             variants={containerVariants}
           >
-            {skillCategories.map((category, index) => (
+            {skillCategories.map((category) => (
               <motion.div
                 key={category.title}
                 className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-2xl border border-gray-700 hover:border-teal-500 transition-all duration-300"
