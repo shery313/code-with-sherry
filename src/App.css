@@ -1,0 +1,8 @@
+body {
+    width: 100dvw;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+    scroll-behavior: smooth;
+    font-family: "Mona Sans", sans-serif;
+  }
