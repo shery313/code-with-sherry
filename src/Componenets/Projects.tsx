@@ -48,6 +48,15 @@ const Projects: React.FC = () => {
       techIcons: [<FaReact key="react" />, <SiTailwindcss key="tailwind" />, <SiTypescript key="ts" />]
     },
     {
+      title: 'Sera Innovation',
+      description: 'A digital solutions company website showcasing services with interactive elements and contact forms.',
+      image: 'https://serainnovations.netlify.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FSera%20Innovations%20Logo.2683ecf1.png&w=256&q=75',
+      demoLink: 'https://serainnovations.com/',
+      codeLink: 'https://github.com/shery313/serafrontend',
+      technologies: ['React', 'Tailwind CSS', 'TypeScript'],
+      techIcons: [<FaReact key="react" />, <SiTailwindcss key="tailwind" />, <SiTypescript key="ts" />]
+    },
+    {
       title: 'Drive with style',
       description: 'Drive with Style is a digital service for providing ease and comfort ride. ',
       image: 'https://drive-with-style.netlify.app/logo.png',

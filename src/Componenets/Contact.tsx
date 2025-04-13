@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
               >
                 {/* Name Input */}
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2 flex items-center">
+                  <label htmlFor="name" className=" text-gray-700 font-medium mb-2 flex items-center">
                     <FiUser className="mr-2 text-teal-500" />
                     Name
                   </label>
@@ -117,7 +117,7 @@ const Contact: React.FC = () => {
 
                 {/* Email Input */}
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2 flex items-center">
+                  <label htmlFor="email" className=" text-gray-700 font-medium mb-2 flex items-center">
                     <FiMail className="mr-2 text-teal-500" />
                     Email
                   </label>
@@ -135,7 +135,7 @@ const Contact: React.FC = () => {
 
                 {/* Message Input */}
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 font-medium mb-2 flex items-center">
+                  <label htmlFor="message" className=" text-gray-700 font-medium mb-2 flex items-center">
                     <FiMessageSquare className="mr-2 text-teal-500" />
                     Message
                   </label>

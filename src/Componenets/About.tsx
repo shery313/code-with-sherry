@@ -26,20 +26,7 @@ const About: React.FC = () => {
     }
   };
 
-  const skills = [
-    { name: "HTML", level: 95 },
-    { name: "CSS", level: 90 },
-    { name: "JavaScript", level: 85 },
-    { name: "React", level: 80 },
-    { name: "Django", level: 75 },
-    { name: "Python", level: 85 },
-    { name: "TypeScript", level: 75 },
-    { name: "Tailwind CSS", level: 90 },
-    { name: "Node.js", level: 70 },
-    { name: "Git", level: 80 },
-    { name: "REST APIs", level: 75 },
-    { name: "SQL", level: 70 }
-  ];
+  
 
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900">
@@ -128,43 +115,6 @@ const About: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Skills Section */}
-          <motion.div 
-            className="mt-16"
-            variants={itemVariants}
-          >
-            <motion.h3 
-              className="text-3xl font-bold mb-8 text-center"
-              variants={itemVariants}
-            >
-              My Skills
-            </motion.h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {skills.map((skill, index) => (
-                <motion.div 
-                  key={skill.name}
-                  className="mb-4"
-                  variants={itemVariants}
-                  custom={index}
-                >
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium text-gray-700">{skill.name}</span>
-                    <span className="text-sm text-gray-500">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <motion.div
-                      className="bg-teal-600 h-2.5 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
