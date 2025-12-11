@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
     { icon: <FiGithub />, href: 'https://github.com/shery313', label: 'GitHub' },
     { icon: <FiLinkedin />, href: 'https://linkedin.com/in/sheryar', label: 'LinkedIn' },
     { icon: <FiTwitter />, href: 'https://twitter.com/sheryar', label: 'Twitter' },
-    { icon: <FiMail />, href: 'mailto:contact@sheryar.dev', label: 'Email' },
-    { icon: <FaWhatsapp />, href: 'https://wa.me/1234567890', label: 'WhatsApp' },
+    { icon: <FiMail />, href: 'mailto:Sheryarsatti@gmail.com', label: 'Email' },
+    { icon: <FaWhatsapp />, href: 'https://wa.me/03075304856', label: 'WhatsApp' },
   ];
 
   const quickLinks = [
@@ -173,7 +173,7 @@ const Footer: React.FC = () => {
                 <div>
                   <p className="text-sm text-gray-400">Email</p>
                   <a href="mailto:contact@sheryar.dev" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    contact@sheryar.dev
+                    Sheryarsatti6@gmail.com
                   </a>
                 </div>
               </div>
@@ -184,8 +184,8 @@ const Footer: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">WhatsApp</p>
-                  <a href="https://wa.me/1234567890" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    +1 (234) 567-8900
+                  <a href="https://wa.me/03075304856/" className="text-gray-300 hover:text-purple-400 transition-colors">
+                    +92307 5304856
                   </a>
                 </div>
               </div>
