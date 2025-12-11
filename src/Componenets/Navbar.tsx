@@ -34,10 +34,10 @@ const Navbar: React.FC = () => {
 
   return (
     <motion.nav
-      className={`sticky top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
+      className={`sticky bg-gray-900/95 top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         scrolled 
           ? 'bg-gray-900/95 backdrop-blur-lg border-b border-white/10 shadow-2xl' 
-          : 'bg-gradient-to-b from-gray-900 to-transparent'
+          : 'bg-gray-900/95'
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
