@@ -103,15 +103,7 @@ const Projects: React.FC = () => {
     }
   };
 
-  const cardHoverVariants = {
-    hover: {
-      y: -15,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
-    }
-  };
+ 
 
   return (
     <section 
