@@ -211,7 +211,7 @@ const Projects: React.FC = () => {
               className="group relative"
               variants={itemVariants}
               whileHover="hover"
-              variants={cardHoverVariants}
+              // variants={cardHoverVariants}
               onHoverStart={() => setHoveredProject(index)}
               onHoverEnd={() => setHoveredProject(null)}
             >
@@ -384,7 +384,7 @@ const Projects: React.FC = () => {
             { label: 'Happy Clients', value: '10+', icon: '😊' },
             { label: 'Code Commits', value: '500+', icon: '💾' },
             { label: 'Technologies Used', value: '15+', icon: '🛠️' }
-          ].map((stat, index) => (
+          ].map((stat) => (
             <motion.div 
               key={stat.label}
               className="text-center"

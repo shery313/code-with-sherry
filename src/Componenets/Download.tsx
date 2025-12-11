@@ -99,7 +99,7 @@ const Download: React.FC = () => {
                 variants={itemVariants}
                 custom={index}
                 whileHover="hover"
-                variants={cardHoverVariants}
+                // variants={cardHoverVariants}
               >
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300">
                   <div className="flex flex-col items-center text-center">

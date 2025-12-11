@@ -214,7 +214,7 @@ const Skills: React.FC = () => {
                       { icon: '📚', title: 'Online Courses', desc: 'Latest tech courses & certifications' },
                       { icon: '🧪', title: 'Side Projects', desc: 'Experimental projects & prototypes' },
                       { icon: '👨‍💻', title: 'Open Source', desc: 'Contributing to community projects' }
-                    ].map((item, index) => (
+                    ].map((item) => (
                       <motion.div
                         key={item.title}
                         className="flex items-start gap-4 p-4 bg-gray-800/30 rounded-xl border border-white/5"
@@ -249,11 +249,6 @@ const Skills: React.FC = () => {
   );
 };
 
-// Helper function for skill level colors
-const getColorFromSkill = (level: number) => {
-  if (level >= 80) return '#8B5CF6, #EC4899';
-  if (level >= 60) return '#6366F1, #8B5CF6';
-  return '#4F46E5, #6366F1';
-};
+
 
 export default Skills;
