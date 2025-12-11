@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Home: React.FC = () => {
-  // Animation variants for consistent transitions
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -15,166 +15,261 @@ const Home: React.FC = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
 
-  const blobVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
+  const floatingVariants = {
+    float: {
+      y: [0, -20, 0],
       transition: {
-        duration: 0.8,
-        ease: "backOut"
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut"
       }
-    },
-    hover: {
-      scale: 1.05,
-      transition: { duration: 0.3 }
     }
   };
 
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white px-4 text-center overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-950 text-white overflow-hidden"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        {[...Array(5)].map((_, i) => (
+      {/* Background gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-900/10 via-transparent to-indigo-900/10 rounded-full"></div>
+        
+        {/* Animated grid pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                             linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+          }}></div>
+        </div>
+      </div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-teal-400"
+            className="absolute w-1 h-1 bg-purple-400 rounded-full"
             style={{
-              width: Math.random() * 300 + 100,
-              height: Math.random() * 300 + 100,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              x: [0, (Math.random() - 0.5) * 100],
-              y: [0, (Math.random() - 0.5) * 100],
-              opacity: [0.1, 0.05],
+              y: [0, Math.random() * 100 - 50],
+              x: [0, Math.random() * 100 - 50],
+              opacity: [0.3, 0.8, 0.3],
             }}
             transition={{
-              duration: Math.random() * 20 + 10,
+              duration: Math.random() * 10 + 10,
               repeat: Infinity,
-              repeatType: "reverse",
               ease: "easeInOut",
             }}
           />
         ))}
       </div>
 
-      <motion.div
-        className="relative w-full max-w-2xl my-8"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
+      {/* Main content */}
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col items-center justify-center">
         <motion.div
-          className="relative w-full aspect-square max-w-md mx-auto"
-          variants={blobVariants}
-          whileHover="hover"
+          className="max-w-6xl w-full"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
         >
-          <svg
-            className="w-full h-full"
-            viewBox="0 0 479 467"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask id="mask0" mask-type="alpha">
-              <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-            </mask>
-            <g mask="url(#mask0)">
-              <path 
-                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" 
-                className="fill-teal-500"
-              />
-              <image 
-                x="10" 
-                y="0" 
-                width="500" 
-                height="500" 
-                href="/shery.png" 
-                className="shadow-lg"
-                preserveAspectRatio="xMidYMid slice"
-              />
-            </g>
-          </svg>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left column - Text content */}
+            <motion.div className="space-y-8" variants={itemVariants}>
+              <div className="space-y-4">
+                <motion.div 
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-indigo-500/20 border border-purple-500/30"
+                  variants={itemVariants}
+                >
+                  <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-purple-200">Frontend Developer & Designer</span>
+                </motion.div>
+
+                <motion.h1 
+                  className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
+                  variants={itemVariants}
+                >
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-100 to-white">
+                    Hi, I'm
+                  </span>
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-500 to-indigo-500 mt-2">
+                    Sheryar
+                  </span>
+                </motion.h1>
+
+                <motion.p 
+                  className="text-xl text-gray-300 leading-relaxed max-w-2xl"
+                  variants={itemVariants}
+                >
+                  I craft <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">digital experiences</span> that blend elegant design with cutting-edge technology. Every pixel tells a story.
+                </motion.p>
+              </div>
+
+              <motion.div 
+                className="flex flex-wrap gap-4"
+                variants={itemVariants}
+              >
+                <motion.a
+                  href="#projects"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-medium text-white overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    Explore Projects
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-indigo-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </motion.a>
+
+                <motion.a
+                  href="#contact"
+                  className="group px-8 py-4 border-2 border-purple-500/30 hover:border-purple-400/50 rounded-xl font-medium transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="flex items-center gap-3">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                    Let's Connect
+                  </span>
+                </motion.a>
+              </motion.div>
+
+              {/* Tech stack indicators */}
+              <motion.div 
+                className="pt-8 border-t border-white/10"
+                variants={itemVariants}
+              >
+                <p className="text-sm text-gray-400 mb-4">Technologies I work with:</p>
+                <div className="flex flex-wrap gap-3">
+                  {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Framer Motion'].map((tech, index) => (
+                    <motion.span
+                      key={tech}
+                      className="px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-sm"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.5 + index * 0.1 }}
+                      whileHover={{
+                        backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                        borderColor: 'rgba(139, 92, 246, 0.5)',
+                        scale: 1.05
+                      }}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Right column - Profile image/hero element */}
+            <motion.div 
+              className="relative"
+              variants={floatingVariants}
+              animate="float"
+            >
+              <div className="relative w-full max-w-md mx-auto">
+                {/* Outer glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl blur-xl opacity-30"></div>
+                
+                {/* Main profile container */}
+                <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl overflow-hidden border border-white/10 backdrop-blur-sm">
+                  {/* Decorative elements */}
+                  <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-purple-500/30 to-transparent rounded-full -translate-x-16 -translate-y-16"></div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-indigo-500/30 to-transparent rounded-full translate-x-16 translate-y-16"></div>
+                  
+                  {/* Profile image */}
+                  <div className="relative aspect-square rounded-3xl overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 z-10"></div>
+                    <img 
+                      src="/shery.png" 
+                      alt="Sheryar" 
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = `https://ui-avatars.com/api/?name=Sheryar&background=8B5CF6&color=fff&bold=true&size=512`;
+                      }}
+                    />
+                    
+                    {/* Animated highlight */}
+                    <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-white/10 to-transparent"></div>
+                  </div>
+                </div>
+
+                {/* Floating badges */}
+                <motion.div 
+                  className="absolute -top-4 -right-4 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl shadow-lg"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <span className="text-sm font-semibold">🚀 Available</span>
+                </motion.div>
+
+                <motion.div 
+                  className="absolute -bottom-4 -left-4 px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-900 border border-white/10 rounded-xl shadow-lg backdrop-blur-sm"
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                >
+                  <span className="text-sm font-medium flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    3+ Years Experience
+                  </span>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
 
-        <motion.div className="max-w-2xl mx-auto mt-8 p-5" variants={itemVariants}>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-teal-200">
-            Hi, I'm Sheryar
-          </h1>
-          <motion.p
-            className="text-xl md:text-2xl mb-8 text-gray-300 leading-relaxed"
-            variants={itemVariants}
-          >
-            I specialize in building <span className="text-teal-300 font-medium">modern web applications</span> with responsive design, intuitive interfaces, and robust functionality.
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-wrap justify-center gap-4"
-            variants={itemVariants}
-          >
-            <motion.a
-              href="#projects"
-              className="px-8 py-3 bg-teal-600 hover:bg-teal-500 text-white rounded-full font-medium transition-colors duration-300 flex items-center gap-2"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 5px 15px rgba(13, 148, 136, 0.4)"
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span>View My Projects</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clipRule="evenodd" />
-              </svg>
-            </motion.a>
-            
-            <motion.a
-              href="#contact"
-              className="px-8 py-3 border-2 border-teal-500 text-teal-400 hover:bg-teal-900/30 rounded-full font-medium transition-colors duration-300 flex items-center gap-2"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 5px 15px rgba(13, 148, 136, 0.2)"
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span>Let's Connect</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M2.94 6.412A2 2 0 002 8.108V16a2 2 0 002 2h12a2 2 0 002-2V8.108a2 2 0 00-.94-1.696l-6-3.75a2 2 0 00-2.12 0l-6 3.75zm2.615 2.423a1 1 0 10-1.11 1.664l5 3.333a1 1 0 001.11 0l5-3.333a1 1 0 00-1.11-1.664L10 11.798 5.555 8.835z" clipRule="evenodd" />
-              </svg>
-            </motion.a>
-          </motion.div>
+        {/* Scroll indicator */}
+        <motion.div 
+          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          animate={{
+            y: [0, 15, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-sm text-gray-400">Scroll down</span>
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
+              <motion.div 
+                className="w-1.5 h-1.5 bg-gradient-to-b from-purple-400 to-indigo-400 rounded-full"
+                animate={{
+                  y: [0, 16, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </div>
+          </div>
         </motion.div>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <svg className="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </motion.div>
+      </div>
     </section>
   );
 };
