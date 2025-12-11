@@ -66,9 +66,9 @@ const Contact: React.FC = () => {
   };
 
   const contactInfo = [
-    { icon: <FiMail />, label: 'Email', value: 'contact@sheryar.dev', link: 'mailto:contact@sheryar.dev' },
-    { icon: <FiPhone />, label: 'Phone', value: '+1 (123) 456-7890', link: 'tel:+11234567890' },
-    { icon: <FiMapPin />, label: 'Location', value: 'San Francisco, CA', link: '#' },
+    { icon: <FiMail />, label: 'Email', value: 'Sheryarsatti6@gmail.com', link: 'mailto:sheryarsatti6@gmail.com' },
+    { icon: <FiPhone />, label: 'Phone', value: '+92 307 5304856', link: 'tel:+923075304856' },
+    { icon: <FiMapPin />, label: 'Location', value: 'Islamabad , Pakistan', link: '#' },
   ];
 
   const socialLinks = [
@@ -362,7 +362,7 @@ const Contact: React.FC = () => {
               Let's work together to bring your ideas to life. I'm excited to hear about your project and explore how we can create something amazing.
             </p>
             <motion.a
-              href="mailto:contact@sheryar.dev"
+              href="mailto:Sheryarsatti6@gmail.com"
               className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
