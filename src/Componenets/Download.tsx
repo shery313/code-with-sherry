@@ -27,12 +27,7 @@ const Download: React.FC = () => {
     }
   };
 
-  const cardHoverVariants = {
-    hover: {
-      y: -5,
-      boxShadow: "0 20px 25px -5px rgba(139, 92, 246, 0.1), 0 10px 10px -5px rgba(139, 92, 246, 0.04)"
-    }
-  };
+ 
 
   const resumeStats = [
     { icon: <FiBriefcase />, label: 'Years Experience', value: '3+' },
